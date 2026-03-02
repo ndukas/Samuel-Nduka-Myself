@@ -147,21 +147,16 @@ export default function Hero({ isDark }: { isDark: boolean }) {
       >
         <div className="relative w-full h-full flex items-end justify-center">
           <img
-            src="/hero-subject.webp"
+            src="https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/object/public/Public/hero-subject.png"
             alt="Samuel Nduka"
             width={600}
             height={900}
             className="h-full w-auto object-contain object-bottom"
-            style={{
-              maskImage: "linear-gradient(to bottom, black 90%, transparent 100%)",
-              WebkitMaskImage: "linear-gradient(to bottom, black 90%, transparent 100%)"
-            }}
             referrerPolicy="no-referrer"
             loading="eager"
             fetchPriority="high"
             decoding="sync"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#05070A]/40 to-transparent mix-blend-overlay" />
         </div>
       </motion.div>
 
