@@ -12,7 +12,7 @@ export default function SplashScreen({ onComplete }: { onComplete: () => void })
       if (!isExiting) {
         handleAnimationComplete();
       }
-    }, 5000);
+    }, 3500);
     return () => clearTimeout(timer);
   }, [isExiting, onComplete]);
 

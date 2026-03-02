@@ -3,7 +3,7 @@ import { useState, useEffect, Suspense, lazy, memo, useCallback } from "react";
 import { motion, AnimatePresence } from "motion/react";
 
 // Lazy load pages for code splitting
-const Home = lazy(() => import("./pages/Home"));
+import Home from "./pages/Home";
 const Portfolio = lazy(() => import("./pages/Portfolio"));
 const About = lazy(() => import("./pages/About"));
 const Contact = lazy(() => import("./pages/Contact"));
