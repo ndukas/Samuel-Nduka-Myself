@@ -70,7 +70,7 @@ const WhyWorkWithMe = memo(function WhyWorkWithMe() {
               </div>
               <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full flex justify-center">
                 <LazyImage 
-                  src="https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/object/public/Public%20main/experience-avatar.webp" 
+                  src="https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/render/image/public/Public%20main/experience-avatar.webp?width=385&height=351&quality=80" 
                   alt="Avatar" 
                   className="w-[220px] h-[220px] object-contain filter drop-shadow-2xl transform translate-y-6 group-hover:translate-y-2 transition-transform duration-500"
                   containerClassName="bg-transparent"
@@ -91,7 +91,7 @@ const WhyWorkWithMe = memo(function WhyWorkWithMe() {
               </div>
               <div className="mt-auto flex justify-center relative z-10 h-full w-full items-end">
                 <LazyImage 
-                  src="https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/object/public/Public%20main/teams-avatar.webp" 
+                  src="https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/render/image/public/Public%20main/teams-avatar.webp?width=455&height=290&quality=80" 
                   alt="Teams Avatar" 
                   width="455"
                   height="290"
@@ -120,7 +120,7 @@ const WhyWorkWithMe = memo(function WhyWorkWithMe() {
               </div>
               <div className="mt-auto relative z-10 h-full w-full flex items-end justify-center">
                  <LazyImage 
-                   src="https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/object/public/Public%20main/mobile-app-showcase.webp" 
+                   src="https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/render/image/public/Public%20main/mobile-app-showcase.webp?width=632&height=367&quality=80" 
                    alt="Mobile App Showcase" 
                    width="632"
                    height="367"
