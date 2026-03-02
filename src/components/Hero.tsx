@@ -146,20 +146,17 @@ export default function Hero({ isDark }: { isDark: boolean }) {
         className="absolute -bottom-12 z-20 w-full max-w-4xl lg:max-w-5xl h-[90vh] md:h-[95vh] flex items-end justify-center pointer-events-none"
       >
         <div className="relative w-full h-full flex items-end justify-center">
-          <picture>
-            <source srcSet="/hero-subject.webp" type="image/webp" />
-            <img
-              src="https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/object/public/Public/hero-subject.png"
-              alt="Samuel Nduka"
-              width={600}
-              height={900}
-              className="h-full w-auto object-contain object-bottom"
-              referrerPolicy="no-referrer"
-              loading="eager"
-              fetchPriority="high"
-              decoding="sync"
-            />
-          </picture>
+          <img
+            src="https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/object/public/Public%20main/hero-subject.webp"
+            alt="Samuel Nduka"
+            width={600}
+            height={900}
+            className="h-full w-auto object-contain object-bottom"
+            referrerPolicy="no-referrer"
+            loading="eager"
+            fetchPriority="high"
+            decoding="sync"
+          />
         </div>
       </motion.div>
 

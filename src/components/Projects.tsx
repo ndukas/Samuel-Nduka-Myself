@@ -8,7 +8,7 @@ const projects = [
     title: "Super Chill",
     category: "Education",
     description: "Mindfullness educational platform designed to help users achieve mental clarity and focus through guided sessions.",
-    image: "https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/object/public/Public/project-super-chill.png",
+    image: "https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/object/public/Public/project-super-chill.webp",
     tags: ["Education", "Mindfulness", "UI Design"],
     link: "https://superchill.org/en/",
     github: "#"
@@ -17,7 +17,7 @@ const projects = [
     title: "Volta Yachts",
     category: "Marketplace",
     description: "The premier marketplace for electric yachts, connecting eco-conscious buyers with cutting-edge marine technology.",
-    image: "https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/object/public/Public/project-volta-yachts.png",
+    image: "https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/object/public/Public/project-volta-yachts.webp",
     tags: ["Electric", "Yachts", "Marketplace"],
     link: "https://www.voltayachts.com/",
     github: "#"
@@ -26,7 +26,7 @@ const projects = [
     title: "Vimcosmo",
     category: "Beauty",
     description: "A luxury beauty cosmetics brand focusing on sustainable products and high-end digital storytelling.",
-    image: "https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/object/public/Public/project-vimcosmo.png",
+    image: "https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/object/public/Public/project-vimcosmo.webp",
     tags: ["Beauty", "Cosmetics", "Branding"],
     link: "https://vimcosmo.com/",
     github: "#"
@@ -35,7 +35,7 @@ const projects = [
     title: "Matcha Ren",
     category: "Food",
     description: "A premium Matcha & Mochi e-commerce, offering rich and authentic Japanese flavors.",
-    image: "https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/object/public/Public/project-matcha-ren.png",
+    image: "https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/object/public/Public/project-matcha-ren.webp",
     tags: ["Matcha", "Branding", "Web Design"],
     link: "https://www.matcharen.com/",
     github: "#"
@@ -44,7 +44,7 @@ const projects = [
     title: "Joi Planner",
     category: "Productivity",
     description: "The daily planner designed to keep distracted minds on track with intuitive scheduling and focus tools.",
-    image: "https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/object/public/Public/project-joi-planner.png",
+    image: "https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/object/public/Public/project-joi-planner.webp",
     tags: ["Productivity", "Neurodiversity", "App Design"],
     link: "https://www.joiplanner.com/",
     github: "#"
@@ -53,7 +53,7 @@ const projects = [
     title: "Cylinder",
     category: "Healthcare",
     description: "A comprehensive digital health platform providing personalized care.",
-    image: "https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/object/public/Public/project-cylinder.png",
+    image: "https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/object/public/Public/project-cylinder.webp",
     tags: ["Healthcare", "Wellness", "Digital Health"],
     link: "https://cylinderhealth.com/",
     github: "#"
@@ -62,7 +62,7 @@ const projects = [
     title: "Codex",
     category: "Technology",
     description: "A powerful blockchain data API platform providing real-time insights and analytics for decentralized networks.",
-    image: "https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/object/public/Public/project-codex.png",
+    image: "https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/object/public/Public/project-codex.webp",
     tags: ["Blockchain", "API", "Web3"],
     link: "https://www.codex.io/",
     github: "#"
@@ -71,7 +71,7 @@ const projects = [
     title: "Amprit Palace",
     category: "Restaurant",
     description: "A digital experience for a premium Indian restaurant, featuring online reservations and an immersive menu.",
-    image: "https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/object/public/Public/project-amprit-palace.png",
+    image: "https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/object/public/Public/project-amprit-palace.webp",
     tags: ["Restaurant", "Hospitality", "Web Design"],
     link: "https://amritpalace.com/",
     github: "#"

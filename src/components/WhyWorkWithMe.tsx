@@ -70,7 +70,7 @@ const WhyWorkWithMe = memo(function WhyWorkWithMe() {
               </div>
               <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full flex justify-center">
                 <LazyImage 
-                  src="https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/object/public/Public/experience-avatar.png" 
+                  src="https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/object/public/Public%20main/experience-avatar.webp" 
                   alt="Avatar" 
                   className="w-[220px] h-[220px] object-contain filter drop-shadow-2xl transform translate-y-6 group-hover:translate-y-2 transition-transform duration-500"
                   containerClassName="bg-transparent"
@@ -91,7 +91,7 @@ const WhyWorkWithMe = memo(function WhyWorkWithMe() {
               </div>
               <div className="mt-auto flex justify-center relative z-10 h-full w-full items-end">
                 <LazyImage 
-                  src="https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/object/public/Public/teams-avatar.png" 
+                  src="https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/object/public/Public%20main/teams-avatar.webp" 
                   alt="Teams Avatar" 
                   className="w-[260px] h-auto object-contain filter drop-shadow-2xl transform translate-y-8 group-hover:translate-y-4 transition-transform duration-500"
                   containerClassName="bg-transparent"
@@ -118,7 +118,7 @@ const WhyWorkWithMe = memo(function WhyWorkWithMe() {
               </div>
               <div className="mt-auto relative z-10 h-full w-full flex items-end justify-center">
                  <LazyImage 
-                   src="https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/object/public/Public/mobile-app-showcase.png" 
+                   src="https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/object/public/Public%20main/mobile-app-showcase.webp" 
                    alt="Mobile App Showcase" 
                    className="w-[115%] max-w-none h-auto object-contain transform translate-y-12 group-hover:translate-y-6 transition-transform duration-500"
                    containerClassName="bg-transparent"
@@ -142,7 +142,7 @@ const WhyWorkWithMe = memo(function WhyWorkWithMe() {
                 {/* High quality 3D Avatar */}
                 <div className="absolute bottom-[-30px] left-[-30px] w-[200px] md:w-[240px] z-0">
                   <LazyImage 
-                    src="https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/object/public/Public/milestones-avatar.png" 
+                    src="https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/object/public/Public/milestones-avatar.webp" 
                     alt="Waving Avatar" 
                     className="w-full h-auto object-contain filter drop-shadow-2xl"
                     containerClassName="bg-transparent"
