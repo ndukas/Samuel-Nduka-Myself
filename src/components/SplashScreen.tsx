@@ -8,10 +8,6 @@ export default function SplashScreen({ onComplete }: { onComplete: () => void })
   const [isExiting, setIsExiting] = useState(false);
 
   useEffect(() => {
-    if (window.innerWidth < 768) {
-      onComplete();
-      return;
-    }
     const timer = setTimeout(() => {
       if (!isExiting) {
         handleAnimationComplete();
