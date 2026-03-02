@@ -93,6 +93,8 @@ const WhyWorkWithMe = memo(function WhyWorkWithMe() {
                 <LazyImage 
                   src="https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/object/public/Public%20main/teams-avatar.webp" 
                   alt="Teams Avatar" 
+                  width="455"
+                  height="290"
                   className="w-[260px] h-auto object-contain filter drop-shadow-2xl transform translate-y-8 group-hover:translate-y-4 transition-transform duration-500"
                   containerClassName="bg-transparent"
                 />
@@ -120,6 +122,8 @@ const WhyWorkWithMe = memo(function WhyWorkWithMe() {
                  <LazyImage 
                    src="https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/object/public/Public%20main/mobile-app-showcase.webp" 
                    alt="Mobile App Showcase" 
+                   width="632"
+                   height="367"
                    className="w-[115%] max-w-none h-auto object-contain transform translate-y-12 group-hover:translate-y-6 transition-transform duration-500"
                    containerClassName="bg-transparent"
                  />
@@ -142,7 +146,7 @@ const WhyWorkWithMe = memo(function WhyWorkWithMe() {
                 {/* High quality 3D Avatar */}
                 <div className="absolute bottom-[-30px] left-[-30px] w-[200px] md:w-[240px] z-0">
                   <LazyImage 
-                    src="https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/object/public/Public/milestones-avatar.webp" 
+                    src="https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/object/public/Public%20main/milestones-avatar.webp" 
                     alt="Waving Avatar" 
                     className="w-full h-auto object-contain filter drop-shadow-2xl"
                     containerClassName="bg-transparent"

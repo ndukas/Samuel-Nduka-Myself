@@ -22,7 +22,7 @@ const Footer = memo(function Footer() {
               <div className="flex items-center gap-4 group/logo">
                 <div className="w-12 h-12 md:w-16 md:h-16 rounded-full overflow-hidden border-2 border-white/10 cursor-pointer transition-transform duration-300 hover:scale-110 hover:rotate-6">
                   <LazyImage 
-                    src="https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/object/public/Public/footer-logo.webp" 
+                    src="https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/object/public/Public%20main/footer-logo.webp" 
                     alt="Samuel Nduka" 
                     className="w-full h-full object-cover"
                   />
@@ -75,7 +75,7 @@ const Footer = memo(function Footer() {
         <div className="mt-20 text-center text-gray-500 text-sm font-medium flex items-center justify-center gap-2 group/copyright">
           <div className="w-5 h-5 rounded-full overflow-hidden opacity-50 group-hover/copyright:opacity-100 transition-opacity cursor-pointer">
             <LazyImage 
-              src="https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/object/public/Public/footer-logo.webp" 
+              src="https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/object/public/Public%20main/footer-logo.webp" 
               alt="Logo" 
               className="w-full h-full object-cover"
             />

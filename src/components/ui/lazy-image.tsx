@@ -8,6 +8,8 @@ interface LazyImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   className?: string;
   containerClassName?: string;
   referrerPolicy?: React.HTMLAttributeReferrerPolicy;
+  width?: string | number;
+  height?: string | number;
 }
 
 export function LazyImage({ 

@@ -6,7 +6,7 @@ import { motion } from "motion/react";
 const sampleOffers: Offer[] = [
   {
     id: 1,
-    imageSrc: "https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/object/public/Public/project-super-chill.webp",
+    imageSrc: "https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/object/public/Public%20main/project-super-chill.webp",
     imageAlt: "International travel landmarks collage",
     tag: "Education",
     title: "Super Chill",
@@ -15,7 +15,7 @@ const sampleOffers: Offer[] = [
   },
   {
     id: 2,
-    imageSrc: "https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/object/public/Public/project-codex.webp",
+    imageSrc: "https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/object/public/Public%20main/project-codex.webp",
     imageAlt: "A delicious looking burger",
     tag: "Technology",
     title: "Codex",
@@ -24,7 +24,7 @@ const sampleOffers: Offer[] = [
   },
   {
     id: 3,
-    imageSrc: "https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/object/public/Public/project-volta-yachts.webp",
+    imageSrc: "https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/object/public/Public%20main/project-volta-yachts.webp",
     imageAlt: "Logos of popular streaming services",
     tag: "Marketplace",
     title: "Volta Yachts",
@@ -33,7 +33,7 @@ const sampleOffers: Offer[] = [
   },
   {
     id: 4,
-    imageSrc: "https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/object/public/Public/project-amprit-palace.webp",
+    imageSrc: "https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/object/public/Public%20main/project-amprit-palace.webp",
     imageAlt: "A person holding a phone with a payment app",
     tag: "Restaurant",
     title: "Amprit Palace",
@@ -42,7 +42,7 @@ const sampleOffers: Offer[] = [
   },
   {
     id: 5,
-    imageSrc: "https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/object/public/Public/project-vimcosmo.webp",
+    imageSrc: "https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/object/public/Public%20main/project-vimcosmo.webp",
     imageAlt: "Gourmet food on a plate",
     tag: "Beauty",
     title: "Vimcosmo",

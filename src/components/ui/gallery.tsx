@@ -16,7 +16,7 @@ const INITIAL_PHOTOS = [
     rotation: -2,
     zIndex: 50,
     direction: "left" as Direction,
-    src: "https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/object/public/Public/IMG_7626.jpeg",
+    src: "https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/object/public/Public%20main/IMG_7626.jpeg",
   },
   {
     id: 2,
@@ -26,7 +26,7 @@ const INITIAL_PHOTOS = [
     rotation: -1,
     zIndex: 40,
     direction: "left" as Direction,
-    src: "https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/object/public/Public/IMG_1447.jpeg",
+    src: "https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/object/public/Public%20main/IMG_1447.jpeg",
   },
   {
     id: 3,
@@ -36,7 +36,7 @@ const INITIAL_PHOTOS = [
     rotation: 2,
     zIndex: 30,
     direction: "right" as Direction,
-    src: "https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/object/public/Public/IMG_2031.jpeg",
+    src: "https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/object/public/Public%20main/IMG_2031.jpeg",
   },
   {
     id: 4,
@@ -46,7 +46,7 @@ const INITIAL_PHOTOS = [
     rotation: 1,
     zIndex: 20,
     direction: "right" as Direction,
-    src: "https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/object/public/Public/IMG_7443.jpeg",
+    src: "https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/object/public/Public%20main/IMG_7443.jpeg",
   },
   {
     id: 5,
@@ -56,7 +56,7 @@ const INITIAL_PHOTOS = [
     rotation: -3,
     zIndex: 10,
     direction: "left" as Direction,
-    src: "https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/object/public/Public/IMG_2428.jpeg",
+    src: "https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/object/public/Public%20main/IMG_2428.jpeg",
   },
 ];
 
