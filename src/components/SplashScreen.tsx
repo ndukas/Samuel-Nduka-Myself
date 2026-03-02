@@ -8,15 +8,17 @@ export default function SplashScreen({ onComplete }: { onComplete: () => void })
   const [isExiting, setIsExiting] = useState(false);
 
   useEffect(() => {
-    // Safety timeout: if animation doesn't finish for some reason, 
-    // force close after 5 seconds
+    if (window.innerWidth < 768) {
+      onComplete();
+      return;
+    }
     const timer = setTimeout(() => {
       if (!isExiting) {
         handleAnimationComplete();
       }
     }, 5000);
     return () => clearTimeout(timer);
-  }, [isExiting]);
+  }, [isExiting, onComplete]);
 
   const handleAnimationComplete = () => {
     // Small delay after drawing finishes before starting exit animation

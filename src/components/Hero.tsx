@@ -6,7 +6,12 @@ import Counter from "@/components/ui/counter";
 export default function Hero({ isDark }: { isDark: boolean }) {
   const ref = useRef(null);
   const [wordIndex, setWordIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
   const words = ["Designer", "Developer", "Problem Solver"];
+
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -20,10 +25,10 @@ export default function Hero({ isDark }: { isDark: boolean }) {
     offset: ["start start", "end start"]
   });
 
-  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "25%"]);
+  const backgroundY = useTransform(scrollYProgress, [0, 1], isMobile ? ["0%", "0%"] : ["0%", "25%"]);
   const textOpacity = useTransform(scrollYProgress, [0, 0.4], [1, 0]);
-  const textY = useTransform(scrollYProgress, [0, 1], ["0%", "-40%"]);
-  const imageScale = useTransform(scrollYProgress, [0, 1], [1, 0.95]);
+  const textY = useTransform(scrollYProgress, [0, 1], isMobile ? ["0%", "0%"] : ["0%", "-40%"]);
+  const imageScale = useTransform(scrollYProgress, [0, 1], isMobile ? [1, 1] : [1, 0.95]);
   const imageOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
   const sectionScale = useTransform(scrollYProgress, [0, 1], [1, 0.98]);
   const blurValue = useTransform(scrollYProgress, [0, 0.5], [0, 10]);
@@ -31,7 +36,7 @@ export default function Hero({ isDark }: { isDark: boolean }) {
   // New parallax values for depth
   const glow1Y = useTransform(scrollYProgress, [0, 1], ["0%", "15%"]);
   const glow2Y = useTransform(scrollYProgress, [0, 1], ["0%", "-10%"]);
-  const statsY = useTransform(scrollYProgress, [0, 1], ["0%", "-20%"]);
+  const statsY = useTransform(scrollYProgress, [0, 1], isMobile ? ["0%", "0%"] : ["0%", "-20%"]);
 
   const gradientColors = isDark
     ? "linear-gradient(90deg, #1E3A8A, #60A5FA, #1E3A8A)"
@@ -112,6 +117,8 @@ export default function Hero({ isDark }: { isDark: boolean }) {
           <img
             src="https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/object/public/Public/hero-subject.png"
             alt="Samuel Nduka"
+            width={600}
+            height={900}
             className="h-full w-auto object-contain object-bottom"
             style={{
               maskImage: "linear-gradient(to bottom, black 90%, transparent 100%)",
@@ -120,7 +127,7 @@ export default function Hero({ isDark }: { isDark: boolean }) {
             referrerPolicy="no-referrer"
             loading="eager"
             fetchPriority="high"
-            decoding="async"
+            decoding="sync"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#05070A]/40 to-transparent mix-blend-overlay" />
         </div>
