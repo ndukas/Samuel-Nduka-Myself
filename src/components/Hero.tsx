@@ -115,7 +115,7 @@ export default function Hero({ isDark }: { isDark: boolean }) {
       >
         <div className="relative w-full h-full flex items-end justify-center">
           <img
-            src="https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/object/public/Public/hero-subject.png"
+            src="/hero-subject.webp"
             alt="Samuel Nduka"
             width={600}
             height={900}
