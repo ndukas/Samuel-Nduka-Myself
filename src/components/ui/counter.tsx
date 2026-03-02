@@ -26,13 +26,20 @@ export default function Counter({
   shiny = false,
   isDark = true,
 }: CounterProps) {
+  const [displayValue, setDisplayValue] = useState(
+    Intl.NumberFormat("en-US", {
+      minimumFractionDigits: decimals,
+      maximumFractionDigits: decimals,
+    }).format(direction === "down" ? value : 0)
+  );
+  
   const ref = useRef<HTMLSpanElement>(null);
   const motionValue = useMotionValue(direction === "down" ? value : 0);
   const springValue = useSpring(motionValue, {
     damping,
     stiffness,
   });
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, margin: "0px" });
 
   useEffect(() => {
     if (isInView) {
@@ -41,15 +48,12 @@ export default function Counter({
   }, [motionValue, isInView, value, direction]);
 
   useEffect(() => {
-    const unsubscribe = springValue.on("change", (latest) => {
-      if (ref.current) {
-        ref.current.textContent = Intl.NumberFormat("en-US", {
-          minimumFractionDigits: decimals,
-          maximumFractionDigits: decimals,
-        }).format(latest);
-      }
+    return springValue.on("change", (latest) => {
+      setDisplayValue(Intl.NumberFormat("en-US", {
+        minimumFractionDigits: decimals,
+        maximumFractionDigits: decimals,
+      }).format(latest));
     });
-    return () => unsubscribe();
   }, [springValue, decimals]);
 
   const shinyStyles = shiny ? {
@@ -63,17 +67,18 @@ export default function Counter({
   } : {};
 
   return (
-    <span className={className}>
+    <span ref={ref} className={className}>
       {prefix}
       {shiny ? (
         <motion.span
-          ref={ref}
           animate={{ backgroundPosition: ["200% 0", "-200% 0"] }}
           transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
           style={shinyStyles}
-        />
+        >
+          {displayValue}
+        </motion.span>
       ) : (
-        <span ref={ref} />
+        <span>{displayValue}</span>
       )}
       {suffix}
     </span>

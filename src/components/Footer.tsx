@@ -17,14 +17,17 @@ export default function Footer() {
           {/* Left Side */}
           <div className="space-y-8">
             <div className="flex flex-col gap-6">
-              <div className="flex items-center gap-4">
-                <img 
+              <div className="flex items-center gap-4 group/logo">
+                <motion.img 
                   src="https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/object/public/Public/footer-logo.png" 
                   alt="Samuel Nduka" 
                   loading="lazy"
                   decoding="async"
                   referrerPolicy="no-referrer"
-                  className="w-12 h-12 md:w-16 md:h-16 rounded-full object-cover border-2 border-white/10"
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                  className="w-12 h-12 md:w-16 md:h-16 rounded-full object-cover border-2 border-white/10 cursor-pointer"
                 />
                 <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white">
                   Samuel Nduka
@@ -71,14 +74,16 @@ export default function Footer() {
         </div>
 
         {/* Copyright */}
-        <div className="mt-20 text-center text-gray-500 text-sm font-medium flex items-center justify-center gap-2">
-          <img 
+        <div className="mt-20 text-center text-gray-500 text-sm font-medium flex items-center justify-center gap-2 group/copyright">
+          <motion.img 
             src="https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/object/public/Public/footer-logo.png" 
             alt="Logo" 
             loading="lazy"
             decoding="async"
             referrerPolicy="no-referrer"
-            className="w-5 h-5 rounded-full object-cover opacity-50"
+            whileHover={{ scale: 1.2, rotate: 10 }}
+            transition={{ type: "spring", stiffness: 400, damping: 10 }}
+            className="w-5 h-5 rounded-full object-cover opacity-50 group-hover/copyright:opacity-100 transition-opacity cursor-pointer"
           />
           <span className="text-white">Samuel Nduka</span> © 2026
         </div>

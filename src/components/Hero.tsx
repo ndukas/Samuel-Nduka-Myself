@@ -128,33 +128,38 @@ export default function Hero({ isDark }: { isDark: boolean }) {
 
       {/* Floating Stats - Positioned to the right of the subject, aligned with Header Connect button */}
       <motion.div
-        initial={{ opacity: 1, x: 0 }}
-        animate={{ opacity: 1, x: 0 }}
         style={{ opacity: textOpacity, y: statsY }}
-        transition={{ delay: 1.6, duration: 1 }}
         className="hidden md:flex absolute right-4 lg:right-8 top-[20%] lg:top-[25%] z-30 flex-col gap-8 lg:gap-14 text-right pointer-events-auto"
       >
-        {[
-          { value: 3, suffix: "+", label: "YEARS OF EXPERIENCE", decimals: 0 },
-          { value: 25, suffix: "+", label: "PROJECTS", decimals: 0 },
-          { value: 4.8, suffix: "", label: "RATING", decimals: 1 }
-        ].map((stat, i) => (
-          <div key={i} className="group flex flex-col items-end">
-            <Counter
-              value={stat.value}
-              suffix={stat.suffix}
-              decimals={stat.decimals}
-              shiny={true}
-              isDark={isDark}
-              stiffness={15}
-              damping={25}
-              className={`text-3xl lg:text-6xl font-black tracking-tighter leading-none ${isDark ? 'text-white' : 'text-black'}`}
-            />
-            <div className="mt-2 flex items-center justify-end opacity-40 group-hover:opacity-100 transition-opacity">
-              <span className="text-[8px] lg:text-xs uppercase tracking-[0.2em] font-bold">{stat.label}</span>
+        <motion.div
+          initial={{ opacity: 0, x: 20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 1, duration: 1, ease: "easeOut" }}
+          className="flex flex-col gap-8 lg:gap-14"
+        >
+          {[
+            { value: 3, suffix: "+", label: "YEARS OF EXPERIENCE", decimals: 0 },
+            { value: 25, suffix: "+", label: "PROJECTS", decimals: 0 },
+            { value: 4.8, suffix: "", label: "RATING", decimals: 1 }
+          ].map((stat, i) => (
+            <div key={i} className="group flex flex-col items-end">
+              <Counter
+                value={stat.value}
+                suffix={stat.suffix}
+                decimals={stat.decimals}
+                shiny={true}
+                isDark={isDark}
+                stiffness={15}
+                damping={25}
+                className={`text-3xl lg:text-6xl font-black tracking-tighter leading-none ${isDark ? 'text-white' : 'text-black'}`}
+              />
+              <div className="mt-2 flex items-center justify-end opacity-40 group-hover:opacity-100 transition-opacity">
+                <span className="text-[8px] lg:text-xs uppercase tracking-[0.2em] font-bold">{stat.label}</span>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </motion.div>
       </motion.div>
 
       {/* Ambient Glows */}
