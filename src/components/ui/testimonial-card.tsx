@@ -100,6 +100,7 @@ export interface ClientsSectionProps {
 // StatCard using theme-consistent styling with counter animation
 const Counter: React.FC<{ value: string }> = ({ value }) => {
   const ref = useRef<HTMLSpanElement>(null);
+  const counterRef = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   // Parse the numeric part and any prefix/suffix
@@ -113,12 +114,16 @@ const Counter: React.FC<{ value: string }> = ({ value }) => {
     stiffness: 100,
   });
 
-  const displayValue = useTransform(motionValue, (latest) => {
-    // Format based on whether the original had a decimal
+  useEffect(() => {
     const isDecimal = value.includes(".");
-    const formatted = isDecimal ? latest.toFixed(1) : Math.floor(latest).toString();
-    return `${prefix}${formatted}${suffix}`;
-  });
+    
+    return motionValue.on("change", (latest) => {
+      if (counterRef.current) {
+        const formatted = isDecimal ? latest.toFixed(1) : Math.floor(latest).toString();
+        counterRef.current.textContent = `${prefix}${formatted}${suffix}`;
+      }
+    });
+  }, [motionValue, value, prefix, suffix]);
 
   useEffect(() => {
     if (isInView) {
@@ -126,7 +131,11 @@ const Counter: React.FC<{ value: string }> = ({ value }) => {
     }
   }, [isInView, number, motionValue]);
 
-  return <motion.span ref={ref}>{displayValue}</motion.span>;
+  return (
+    <span ref={ref}>
+      <span ref={counterRef}>{prefix}0{suffix}</span>
+    </span>
+  );
 };
 
 const StatCard: React.FC<{ value: string; label: string }> = ({ value, label }) => (
@@ -154,11 +163,16 @@ const StickyTestimonialCard: React.FC<{ testimonial: Testimonial; index: number 
       )}>
         {/* Top section: Image and Author */}
         <div className="flex items-center gap-4">
-          <div
-            className="w-16 h-16 rounded-2xl bg-cover bg-center flex-shrink-0 border border-white/10"
-            style={{ backgroundImage: `url(${testimonial.avatarSrc})` }}
-            aria-label={`Photo of ${testimonial.name}`}
-          />
+          <div className="w-16 h-16 rounded-2xl overflow-hidden border border-white/10 flex-shrink-0">
+            <img 
+              src={testimonial.avatarSrc} 
+              alt={testimonial.name}
+              loading="lazy"
+              decoding="async"
+              className="w-full h-full object-cover"
+              referrerPolicy="no-referrer"
+            />
+          </div>
           <div className="flex-grow">
             <p className="font-bold text-xl text-white tracking-tight">{testimonial.name}</p>
             <p className="text-sm font-medium text-slate-400">{testimonial.title}</p>

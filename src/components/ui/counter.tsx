@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { useInView, useMotionValue, useSpring, motion } from "motion/react";
 
 interface CounterProps {
@@ -26,14 +26,9 @@ export default function Counter({
   shiny = false,
   isDark = true,
 }: CounterProps) {
-  const [displayValue, setDisplayValue] = useState(
-    Intl.NumberFormat("en-US", {
-      minimumFractionDigits: decimals,
-      maximumFractionDigits: decimals,
-    }).format(direction === "down" ? value : 0)
-  );
-  
   const ref = useRef<HTMLSpanElement>(null);
+  const counterRef = useRef<HTMLSpanElement>(null);
+  
   const motionValue = useMotionValue(direction === "down" ? value : 0);
   const springValue = useSpring(motionValue, {
     damping,
@@ -48,11 +43,15 @@ export default function Counter({
   }, [motionValue, isInView, value, direction]);
 
   useEffect(() => {
+    const formatter = new Intl.NumberFormat("en-US", {
+      minimumFractionDigits: decimals,
+      maximumFractionDigits: decimals,
+    });
+
     return springValue.on("change", (latest) => {
-      setDisplayValue(Intl.NumberFormat("en-US", {
-        minimumFractionDigits: decimals,
-        maximumFractionDigits: decimals,
-      }).format(latest));
+      if (counterRef.current) {
+        counterRef.current.textContent = formatter.format(latest);
+      }
     });
   }, [springValue, decimals]);
 
@@ -66,19 +65,25 @@ export default function Counter({
     display: "inline-block",
   } : {};
 
+  const initialValue = Intl.NumberFormat("en-US", {
+    minimumFractionDigits: decimals,
+    maximumFractionDigits: decimals,
+  }).format(direction === "down" ? value : 0);
+
   return (
     <span ref={ref} className={className}>
       {prefix}
       {shiny ? (
         <motion.span
+          ref={counterRef}
           animate={{ backgroundPosition: ["200% 0", "-200% 0"] }}
           transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
           style={shinyStyles}
         >
-          {displayValue}
+          {initialValue}
         </motion.span>
       ) : (
-        <span>{displayValue}</span>
+        <span ref={counterRef}>{initialValue}</span>
       )}
       {suffix}
     </span>

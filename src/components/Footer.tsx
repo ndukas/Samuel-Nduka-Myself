@@ -1,8 +1,10 @@
-import { Linkedin, Instagram, Twitter, Facebook, Mail, Phone } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
 import { motion } from "motion/react";
 import { Link } from "react-router-dom";
+import { LazyImage } from "./ui/lazy-image";
+import { memo } from "react";
 
-export default function Footer() {
+const Footer = memo(function Footer() {
   return (
     <footer className="bg-transparent py-8 px-4 md:px-8">
       <motion.div 
@@ -18,17 +20,13 @@ export default function Footer() {
           <div className="space-y-8">
             <div className="flex flex-col gap-6">
               <div className="flex items-center gap-4 group/logo">
-                <motion.img 
-                  src="https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/object/public/Public/footer-logo.png" 
-                  alt="Samuel Nduka" 
-                  loading="lazy"
-                  decoding="async"
-                  referrerPolicy="no-referrer"
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  whileTap={{ scale: 0.95 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                  className="w-12 h-12 md:w-16 md:h-16 rounded-full object-cover border-2 border-white/10 cursor-pointer"
-                />
+                <div className="w-12 h-12 md:w-16 md:h-16 rounded-full overflow-hidden border-2 border-white/10 cursor-pointer transition-transform duration-300 hover:scale-110 hover:rotate-6">
+                  <LazyImage 
+                    src="https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/object/public/Public/footer-logo.png" 
+                    alt="Samuel Nduka" 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
                 <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white">
                   Samuel Nduka
                 </h2>
@@ -75,19 +73,18 @@ export default function Footer() {
 
         {/* Copyright */}
         <div className="mt-20 text-center text-gray-500 text-sm font-medium flex items-center justify-center gap-2 group/copyright">
-          <motion.img 
-            src="https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/object/public/Public/footer-logo.png" 
-            alt="Logo" 
-            loading="lazy"
-            decoding="async"
-            referrerPolicy="no-referrer"
-            whileHover={{ scale: 1.2, rotate: 10 }}
-            transition={{ type: "spring", stiffness: 400, damping: 10 }}
-            className="w-5 h-5 rounded-full object-cover opacity-50 group-hover/copyright:opacity-100 transition-opacity cursor-pointer"
-          />
+          <div className="w-5 h-5 rounded-full overflow-hidden opacity-50 group-hover/copyright:opacity-100 transition-opacity cursor-pointer">
+            <LazyImage 
+              src="https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/object/public/Public/footer-logo.png" 
+              alt="Logo" 
+              className="w-full h-full object-cover"
+            />
+          </div>
           <span className="text-white">Samuel Nduka</span> © 2026
         </div>
       </motion.div>
     </footer>
   );
-}
+});
+
+export default Footer;

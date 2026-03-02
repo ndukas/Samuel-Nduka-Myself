@@ -1,5 +1,5 @@
-import { motion, useScroll, useTransform } from "motion/react";
-import { useRef } from "react";
+import { motion } from "motion/react";
+import { useRef, memo } from "react";
 import Bubbles from "./Bubbles";
 import { LazyImage } from "./ui/lazy-image";
 
@@ -20,6 +20,42 @@ const cards = [
     description: "I bridge design and dev to craft engaging, impactful solutions."
   }
 ];
+
+const FeatureCard = memo(({ card, index, itemVariants }: { card: typeof cards[0]; index: number; itemVariants: any }) => (
+  <motion.div
+    variants={itemVariants}
+    whileHover={{ 
+      y: -10,
+      scale: 1.02,
+      backgroundColor: "rgba(255, 255, 255, 0.08)"
+    }}
+    transition={{ 
+      type: "spring",
+      stiffness: 300,
+      damping: 20
+    }}
+    className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-[2.5rem] py-8 px-10 md:py-10 md:px-12 text-center transition-colors duration-300 flex flex-col items-center justify-center min-h-[280px] cursor-default group"
+  >
+    <motion.div 
+      animate={{ 
+        y: [0, -5, 0],
+      }}
+      transition={{
+        duration: 4,
+        repeat: Infinity,
+        ease: "easeInOut",
+        delay: index * 0.5
+      }}
+      className="mb-6 group-hover:scale-110 transition-transform duration-300"
+    >
+      {card.icon}
+    </motion.div>
+    <h3 className="text-2xl md:text-3xl font-bold mb-3 text-white">{card.title}</h3>
+    <p className="text-slate-400 leading-relaxed text-base md:text-lg">
+      {card.description}
+    </p>
+  </motion.div>
+));
 
 export default function BehindTheScreens() {
   const sectionRef = useRef(null);
@@ -74,40 +110,7 @@ export default function BehindTheScreens() {
           className="grid md:grid-cols-3 gap-8"
         >
           {cards.map((card, index) => (
-            <motion.div
-              key={index}
-              variants={itemVariants}
-              whileHover={{ 
-                y: -10,
-                scale: 1.02,
-                backgroundColor: "rgba(255, 255, 255, 0.08)"
-              }}
-              transition={{ 
-                type: "spring",
-                stiffness: 300,
-                damping: 20
-              }}
-              className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-[2.5rem] py-8 px-10 md:py-10 md:px-12 text-center transition-colors duration-300 flex flex-col items-center justify-center min-h-[280px] cursor-default group"
-            >
-              <motion.div 
-                animate={{ 
-                  y: [0, -5, 0],
-                }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: index * 0.5
-                }}
-                className="mb-6 group-hover:scale-110 transition-transform duration-300"
-              >
-                {card.icon}
-              </motion.div>
-              <h3 className="text-2xl md:text-3xl font-bold mb-3 text-white">{card.title}</h3>
-              <p className="text-slate-400 leading-relaxed text-base md:text-lg">
-                {card.description}
-              </p>
-            </motion.div>
+            <FeatureCard key={index} card={card} index={index} itemVariants={itemVariants} />
           ))}
         </motion.div>
       </motion.div>

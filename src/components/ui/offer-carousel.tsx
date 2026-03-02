@@ -2,6 +2,7 @@ import * as React from "react";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, ArrowRight, Tag } from "lucide-react";
 import { cn } from "@/lib/utils"; // Your utility for merging Tailwind classes
+import { LazyImage } from "./lazy-image";
 
 // Define the type for a single offer item
 export interface Offer {
@@ -33,16 +34,14 @@ const OfferCard = React.forwardRef<HTMLAnchorElement, OfferCardProps>(({ offer }
     draggable={false}
   >
     {/* Background Image */}
-    <img
-      src={offer.imageSrc}
-      alt={offer.imageAlt}
-      loading="lazy"
-      decoding="async"
-      draggable={false}
-      referrerPolicy="no-referrer"
-      onDragStart={(e) => e.preventDefault()}
-      className="absolute inset-0 w-full h-[70%] object-cover transition-transform duration-500 group-hover:scale-110 pointer-events-none"
-    />
+    <div className="absolute inset-0 w-full h-[70%] overflow-hidden">
+      <LazyImage
+        src={offer.imageSrc}
+        alt={offer.imageAlt}
+        className="group-hover:scale-110"
+        containerClassName="h-full w-full"
+      />
+    </div>
     {/* Card Content */}
     <div className="absolute bottom-0 left-0 right-0 h-[30%] bg-slate-900/95 backdrop-blur-md p-3 flex flex-col justify-center items-center text-center border-t border-white/10">
       <div className="space-y-1 w-full">

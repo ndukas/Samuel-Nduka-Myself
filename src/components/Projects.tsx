@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from "motion/react";
 import { ChevronDown } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, memo } from "react";
 import { LazyImage } from "./ui/lazy-image";
 
 const projects = [
@@ -78,6 +78,48 @@ const projects = [
   }
 ];
 
+const ProjectCard = memo(({ project, index }: { project: typeof projects[0]; index: number }) => (
+  <motion.a
+    key={project.title}
+    href={project.link}
+    target="_blank"
+    rel="noopener noreferrer"
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, margin: "-50px" }}
+    transition={{ 
+      duration: 0.7, 
+      delay: (index % 2) * 0.1, 
+      ease: [0.21, 0.47, 0.32, 0.98] 
+    }}
+    className="group bg-[#0B1120] rounded-[1.5rem] md:rounded-[2.5rem] overflow-hidden border border-white/5 shadow-2xl flex flex-col cursor-pointer"
+  >
+    <div className="relative aspect-[4/3] overflow-hidden">
+      <LazyImage 
+        src={project.image} 
+        alt={project.title}
+        className="group-hover:scale-110"
+        referrerPolicy="no-referrer"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#0B1120]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+    </div>
+    
+    <div className="p-6 md:p-10 flex flex-col items-center text-center">
+      <div className="inline-block px-4 py-1.5 bg-white/5 border border-white/10 rounded-full text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em] mb-4 md:mb-6">
+        {project.category}
+      </div>
+      
+      <h4 className="text-2xl md:text-4xl font-bold text-white mb-3 tracking-tight group-hover:text-blue-400 transition-colors duration-300">
+        {project.title}
+      </h4>
+      
+      <p className="text-slate-400 text-sm md:text-lg leading-relaxed max-w-[280px] mx-auto">
+        {project.description}
+      </p>
+    </div>
+  </motion.a>
+));
+
 export default function Projects() {
   const [visibleCount, setVisibleCount] = useState(projects.length);
   const [isMobile, setIsMobile] = useState(false);
@@ -109,45 +151,7 @@ export default function Projects() {
         <div className="grid md:grid-cols-2 gap-6 md:gap-10">
           <AnimatePresence mode="popLayout">
             {projects.slice(0, visibleCount).map((project, index) => (
-              <motion.a
-                key={project.title}
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ 
-                  duration: 0.7, 
-                  delay: (index % 2) * 0.1, 
-                  ease: [0.21, 0.47, 0.32, 0.98] 
-                }}
-                className="group bg-[#0B1120] rounded-[1.5rem] md:rounded-[2.5rem] overflow-hidden border border-white/5 shadow-2xl flex flex-col cursor-pointer"
-              >
-                <div className="relative aspect-[4/3] overflow-hidden">
-                  <LazyImage 
-                    src={project.image} 
-                    alt={project.title}
-                    className="group-hover:scale-110"
-                    referrerPolicy="no-referrer"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0B1120]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                </div>
-                
-                <div className="p-6 md:p-10 flex flex-col items-center text-center">
-                  <div className="inline-block px-4 py-1.5 bg-white/5 border border-white/10 rounded-full text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em] mb-4 md:mb-6">
-                    {project.category}
-                  </div>
-                  
-                  <h4 className="text-2xl md:text-4xl font-bold text-white mb-3 tracking-tight group-hover:text-blue-400 transition-colors duration-300">
-                    {project.title}
-                  </h4>
-                  
-                  <p className="text-slate-400 text-sm md:text-lg leading-relaxed max-w-[280px] mx-auto">
-                    {project.description}
-                  </p>
-                </div>
-              </motion.a>
+              <ProjectCard key={project.title} project={project} index={index} />
             ))}
           </AnimatePresence>
         </div>

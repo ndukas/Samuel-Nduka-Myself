@@ -1,25 +1,33 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense, lazy, memo, useCallback } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import Home from "./pages/Home";
-import Portfolio from "./pages/Portfolio";
-import About from "./pages/About";
-import Contact from "./pages/Contact";
-import Privacy from "./pages/Privacy";
-import Terms from "./pages/Terms";
-import FloatingNav from "./components/FloatingNav";
-import ScrollToTop from "./components/ScrollToTop";
-import Header from "./components/Header";
-import SplashScreen from "./components/SplashScreen";
+
+// Lazy load pages for code splitting
+const Home = lazy(() => import("./pages/Home"));
+const Portfolio = lazy(() => import("./pages/Portfolio"));
+const About = lazy(() => import("./pages/About"));
+const Contact = lazy(() => import("./pages/Contact"));
+const Privacy = lazy(() => import("./pages/Privacy"));
+const Terms = lazy(() => import("./pages/Terms"));
+
+// Lazy load global components
+const FloatingNav = lazy(() => import("./components/FloatingNav"));
+const Header = lazy(() => import("./components/Header"));
+const SplashScreen = lazy(() => import("./components/SplashScreen"));
+const ScrollToTop = lazy(() => import("./components/ScrollToTop"));
+
+// Memoize static layout components to prevent unnecessary re-renders
+const MemoizedHeader = memo(Header);
+const MemoizedFloatingNav = memo(FloatingNav);
 
 function AppContent() {
   const [isDark, setIsDark] = useState(true);
   const [showSplash, setShowSplash] = useState(true);
   const location = useLocation();
 
-  const handleSplashComplete = () => {
+  const handleSplashComplete = useCallback(() => {
     setShowSplash(false);
-  };
+  }, []);
 
   useEffect(() => {
     // Force dark mode on all pages except home
@@ -27,35 +35,54 @@ function AppContent() {
       setIsDark(true);
     }
 
+    // Throttled scroll listener using requestAnimationFrame for performance
+    let ticking = false;
     const handleScroll = () => {
-      if (location.pathname === "/") {
-        // If scrolled past hero (approx 600px), force dark mode
-        if (window.scrollY > 600 && !isDark) {
-          setIsDark(true);
-        }
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          if (location.pathname === "/") {
+            // If scrolled past hero (approx 600px), force dark mode
+            if (window.scrollY > 600 && !isDark) {
+              setIsDark(true);
+            }
+          }
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isDark, location.pathname]);
 
   return (
     <>
-      <AnimatePresence>
-        {showSplash && <SplashScreen onComplete={handleSplashComplete} />}
+      <div className="bg-fixed-gradient" />
+      <AnimatePresence mode="wait">
+        {showSplash && (
+          <Suspense fallback={null}>
+            <SplashScreen onComplete={handleSplashComplete} />
+          </Suspense>
+        )}
       </AnimatePresence>
+      
       <div className={`font-sans text-white selection:bg-blue-500 selection:text-white pb-32 transition-colors duration-500 ${isDark ? 'bg-[#0B1120]' : 'bg-white'}`}>
-        <Header isDark={isDark} />
-        <FloatingNav />
-        <Routes>
-          <Route path="/" element={<Home isDark={isDark} />} />
-          <Route path="/portfolio" element={<Portfolio />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/privacy" element={<Privacy />} />
-          <Route path="/terms" element={<Terms />} />
-        </Routes>
+        <Suspense fallback={null}>
+          <MemoizedHeader isDark={isDark} />
+          <MemoizedFloatingNav />
+        </Suspense>
+
+        <Suspense fallback={<div className="min-h-screen flex items-center justify-center text-slate-500">Loading...</div>}>
+          <Routes>
+            <Route path="/" element={<Home isDark={isDark} />} />
+            <Route path="/portfolio" element={<Portfolio />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/privacy" element={<Privacy />} />
+            <Route path="/terms" element={<Terms />} />
+          </Routes>
+        </Suspense>
       </div>
     </>
   );
@@ -65,7 +92,9 @@ function AppContent() {
 export default function App() {
   return (
     <Router>
-      <ScrollToTop />
+      <Suspense fallback={null}>
+        <ScrollToTop />
+      </Suspense>
       <AppContent />
     </Router>
   );

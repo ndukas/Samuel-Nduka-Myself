@@ -1,8 +1,10 @@
 import { motion } from "motion/react";
-import { Figma, Slack, Linkedin, Framer, PenTool, Star, Headset, MessageCircle, Clock, LifeBuoy, ShieldCheck } from "lucide-react";
+import { Star } from "lucide-react";
 import Counter from "./ui/counter";
+import { LazyImage } from "./ui/lazy-image";
+import { memo } from "react";
 
-export default function WhyWorkWithMe() {
+const WhyWorkWithMe = memo(function WhyWorkWithMe() {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -67,13 +69,11 @@ export default function WhyWorkWithMe() {
                 </h3>
               </div>
               <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full flex justify-center">
-                <motion.img 
+                <LazyImage 
                   src="https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/object/public/Public/experience-avatar.png" 
                   alt="Avatar" 
-                  loading="lazy"
-                  decoding="async"
-                  referrerPolicy="no-referrer"
                   className="w-[220px] h-[220px] object-contain filter drop-shadow-2xl transform translate-y-6 group-hover:translate-y-2 transition-transform duration-500"
+                  containerClassName="bg-transparent"
                 />
               </div>
             </motion.div>
@@ -90,13 +90,11 @@ export default function WhyWorkWithMe() {
                 </h3>
               </div>
               <div className="mt-auto flex justify-center relative z-10 h-full w-full items-end">
-                <motion.img 
+                <LazyImage 
                   src="https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/object/public/Public/teams-avatar.png" 
                   alt="Teams Avatar" 
-                  loading="lazy"
-                  decoding="async"
-                  referrerPolicy="no-referrer"
                   className="w-[260px] h-auto object-contain filter drop-shadow-2xl transform translate-y-8 group-hover:translate-y-4 transition-transform duration-500"
+                  containerClassName="bg-transparent"
                 />
               </div>
             </motion.div>
@@ -119,13 +117,11 @@ export default function WhyWorkWithMe() {
                 </h3>
               </div>
               <div className="mt-auto relative z-10 h-full w-full flex items-end justify-center">
-                 <motion.img 
+                 <LazyImage 
                    src="https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/object/public/Public/mobile-app-showcase.png" 
                    alt="Mobile App Showcase" 
-                   loading="lazy"
-                   decoding="async"
-                   referrerPolicy="no-referrer"
                    className="w-[115%] max-w-none h-auto object-contain transform translate-y-12 group-hover:translate-y-6 transition-transform duration-500"
+                   containerClassName="bg-transparent"
                  />
               </div>
             </motion.div>
@@ -145,13 +141,11 @@ export default function WhyWorkWithMe() {
               <div className="flex-1 relative z-10">
                 {/* High quality 3D Avatar */}
                 <div className="absolute bottom-[-30px] left-[-30px] w-[200px] md:w-[240px] z-0">
-                  <motion.img 
+                  <LazyImage 
                     src="https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/object/public/Public/milestones-avatar.png" 
                     alt="Waving Avatar" 
-                    loading="lazy"
-                    decoding="async"
-                    referrerPolicy="no-referrer"
                     className="w-full h-auto object-contain filter drop-shadow-2xl"
+                    containerClassName="bg-transparent"
                   />
                 </div>
                 
@@ -188,4 +182,6 @@ export default function WhyWorkWithMe() {
       </motion.div>
     </section>
   );
-}
+});
+
+export default WhyWorkWithMe;
