@@ -95,7 +95,7 @@ const WhyWorkWithMe = memo(function WhyWorkWithMe() {
                   alt="Teams Avatar" 
                   width="455"
                   height="290"
-                  className="w-[260px] h-auto object-contain filter drop-shadow-2xl transform translate-y-8 group-hover:translate-y-4 transition-transform duration-500"
+                  className="w-[340px] h-auto object-contain filter drop-shadow-2xl transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500"
                   containerClassName="bg-transparent"
                 />
               </div>
@@ -124,7 +124,7 @@ const WhyWorkWithMe = memo(function WhyWorkWithMe() {
                    alt="Mobile App Showcase" 
                    width="632"
                    height="367"
-                   className="w-[115%] max-w-none h-auto object-contain transform translate-y-12 group-hover:translate-y-6 transition-transform duration-500"
+                   className="w-[85%] h-auto object-contain transform translate-y-6 group-hover:translate-y-2 transition-transform duration-500"
                    containerClassName="bg-transparent"
                  />
               </div>
