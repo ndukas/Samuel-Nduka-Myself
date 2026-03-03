@@ -5,17 +5,17 @@ import { LazyImage } from "./ui/lazy-image";
 
 const cards = [
   {
-    icon: <LazyImage src="https://em-content.zobj.net/source/apple/391/thinking-face_1f914.png" alt="Thinking Face" className="w-14 h-14 mx-auto" containerClassName="bg-transparent" />,
+    icon: <LazyImage src="https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/object/public/Public%20main/thinking-face-removebg-preview.webp" alt="Thinking Face" className="w-14 h-14 mx-auto" containerClassName="bg-transparent" />,
     title: "Who am I?",
     description: "I am a skilled UX Designer crafting seamless digital experiences."
   },
   {
-    icon: <LazyImage src="https://em-content.zobj.net/source/apple/391/brain_1f9e0.png" alt="Brain" className="w-14 h-14 mx-auto" containerClassName="bg-transparent" />,
+    icon: <LazyImage src="https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/object/public/Public%20main/brain_1f9e0-removebg-preview.webp" alt="Brain" className="w-14 h-14 mx-auto" containerClassName="bg-transparent" />,
     title: "My Philosophy",
     description: "Great design is clarity, usability, and effortless impact."
   },
   {
-    icon: <LazyImage src="https://em-content.zobj.net/source/apple/391/sparkles_2728.png" alt="Sparkles" className="w-14 h-14 mx-auto" containerClassName="bg-transparent" />,
+    icon: <LazyImage src="https://ridbtuorcmkjidenxudx.supabase.co/storage/v1/object/public/Public%20main/sparkles_2728-Photoroom.webp" alt="Sparkles" className="w-14 h-14 mx-auto" containerClassName="bg-transparent" />,
     title: "My Distinct Edge",
     description: "I bridge design and dev to craft engaging, impactful solutions."
   }
