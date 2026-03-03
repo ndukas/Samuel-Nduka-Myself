@@ -138,13 +138,13 @@ export default function Hero({ isDark }: { isDark: boolean }) {
         </motion.div>
       </div>
 
-      {/* Main Subject Image — z-20 sits in front of the background text */}
+      {/* Main Subject Image — z-50 to ensure visibility */}
       <motion.div
-        style={{ scale: imageScale, y: backgroundY, opacity: imageOpacity }}
-        initial={{ opacity: 1, y: 0 }}
+        style={{ scale: imageScale, y: backgroundY }}
+        initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-        className="absolute -bottom-12 z-20 w-full max-w-4xl lg:max-w-5xl h-[90vh] md:h-[95vh] flex items-end justify-center pointer-events-none"
+        className="absolute -bottom-12 z-50 w-full max-w-4xl lg:max-w-5xl h-[90vh] md:h-[95vh] flex items-end justify-center pointer-events-none"
       >
         <div className="relative w-full h-full flex items-end justify-center">
           <img 
@@ -152,9 +152,6 @@ export default function Hero({ isDark }: { isDark: boolean }) {
             src={heroImage}
             width="721"
             height="895"
-            loading="eager"
-            fetchPriority="high"
-            decoding="sync"
             className="h-full w-auto object-contain object-bottom"
           />
         </div>
