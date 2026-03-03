@@ -16,6 +16,14 @@
     from { transform: translateX(0); }
     to { transform: translateX(calc(-100% - var(--gap))); }
   }
+
+  @keyframes gradient-text {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  --animate-gradient-text: gradient-text 3s ease infinite;
 }
 
 body {
