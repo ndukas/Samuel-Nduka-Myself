@@ -2,6 +2,7 @@ import { motion, useScroll, useTransform, AnimatePresence } from "motion/react";
 import { useRef, useState, useEffect, memo } from "react";
 import { AnimatedText } from "@/components/ui/animated-shiny-text";
 import Counter from "@/components/ui/counter";
+import heroImage from "@/assets/hero-subject.webp";
 
 const HeroStats = memo(({ isDark }: { isDark: boolean }) => (
   <motion.div
@@ -148,7 +149,7 @@ export default function Hero({ isDark }: { isDark: boolean }) {
         <div className="relative w-full h-full flex items-end justify-center">
           <img 
             alt="Samuel Nduka"
-            src="/hero-subject.webp"
+            src={heroImage}
             width="721"
             height="895"
             loading="eager"
